@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_api_crud_6sic3/controllers/user_controller.dart';
+import 'user_add_page.dart';
+import 'user_edit_page.dart';
 
 class UserListPage extends StatelessWidget {
   UserListPage({super.key});
@@ -16,7 +18,9 @@ class UserListPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
-        onPressed: () {},
+        onPressed: () {
+          Get.to(() => UserAddPage());
+        },
         child: const Icon(Icons.add),
       ),
       body: Obx(
@@ -43,7 +47,11 @@ class UserListPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => UserEditPage(
+                                user: user,
+                              ));
+                        },
                         icon: const Icon(
                           Icons.edit,
                           color: Colors.green,
